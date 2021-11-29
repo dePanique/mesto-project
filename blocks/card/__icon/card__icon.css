@@ -1,0 +1,12 @@
+.card__icon {
+  box-sizing: border-box;
+  width: 22px;
+  height: 19px;
+  margin-right: 5px;
+  background-image: url(./../../../images/card/heart-icon.svg);
+  transition: opacity .2s ease .1s;
+}
+
+.card__icon:hover {
+  opacity: 50%;
+}

@@ -1,0 +1,26 @@
+.footer {
+  box-sizing: border-box;
+  /*border: thistle 3px solid;*/
+  width: 100%;
+  max-width: 318px;
+  height: 18px;
+  align-self: flex-start;
+  flex-direction: row;
+  margin-left: 200px;
+}
+
+@media screen and (min-width:320px) and (max-width: 1280px) {
+  .footer {
+    margin-left: calc(200px + (100vw - 1280px) * (181 / 960));
+    width: 282px;
+    height: calc(18px + (100vw - 1280px) * (4 / 960));
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .footer {
+    margin-left: 0;
+    width: 100%;
+    height: 14px;
+  }
+}

@@ -1,0 +1,8 @@
+.main {
+  box-sizing: border-box;
+  /*border: springgreen 3px solid;*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

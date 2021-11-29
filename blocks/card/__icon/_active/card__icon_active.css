@@ -1,0 +1,7 @@
+.card__icon_active {
+  box-sizing: border-box;
+  width: 22px;
+  height: 19px;
+  margin-right: 5px;
+  background-image: url(./../../../../images/card/heart-icon_active.svg);
+}

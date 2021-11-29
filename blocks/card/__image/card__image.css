@@ -1,0 +1,6 @@
+.card__image {
+  display: flex;
+  margin: 0;
+  width: auto;
+  height: 100%;
+}

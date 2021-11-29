@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+  <meta name="description" content="Проект Mesto (второй месяц)">
+  <meta name="keywords" content="HTML5, CSS, Yandex Practicum">
+  <meta name="author" content="Попов Олег">
+</head>
+<body class="root page">
+
+  <div class="form">
+
+    <div class="form__container">
+
+      <button type="button" class="form__close-button"></button>
+
+      <div class="form__blank">
+
+        <p class="form__title">
+          Редактировать профиль
+        </p>
+
+        <form action="" class="form__user">
+
+          <fieldset class="form__name-info">
+            <input type="text" value="Жак-Ив Кусто" class="form__input-name">
+          </fieldset>
+
+          <fieldset class="form__business-info">
+            <input type="text" value="Исследователь океана" class="form__input-business">
+          </fieldset>
+
+        </form>
+
+        <button type="submit" class="form__save-button">Сохранить</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <header class="header">
+    <img src="./images/header/Vector.svg" alt="Лого Место" class="header__logo">
+  </header>
+
+  <main class="root main">
+
+    <section class="profile">
+      <img src="./images/profile/Cousteau's photo.jpg" alt="Фото Жака Ив Кусто" class="profile__avatar">
+
+      <div class="profile__info">
+
+        <h1 class="profile__name">
+          Жак-Ив Кусто
+        </h1>
+
+        <button type="button" class="profile__edit-box">
+          <img src="./images/profile/pencil.svg" class="profile__edit-pen">
+        </button>
+
+        <h2 class="profile_business">
+          Исследователь океана
+        </h2>
+
+      </div>
+
+      <button type="button" class="profile__add-button">
+        <img src="./images/profile/button-plus.svg" alt="" class="profile__add-plus">
+      </button>
+
+    </section>
+
+    <section class="elements">
+
+      <div class="card">
+        <img src="./images/elements/karachaevo_1.jpg" alt="" class="class__image">
+        <div class="card__bottom-row">
+          <h3 class="card__title">Карачаевск</h3>
+          <div class="card__icon card__icon_active"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./images/elements/Elbrus_2.jpg" alt="" class="class__image">
+        <div class="card__bottom-row">
+          <h3 class="card__title">Гора Эльбрус</h3>
+          <img src="./images/card/heart-icon.svg" alt="" class="card__icon">
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./images/elements/Dombai_3.jpg" alt="" class="class__image">
+        <div class="card__bottom-row">
+          <h3 class="card__title">Домбай</h3>
+          <img src="./images/card/heart-icon.svg" alt="" class="card__icon">
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./images/elements/Elbrus_2.jpg" alt="" class="class__image">
+        <div class="card__bottom-row">
+          <h3 class="card__title">Гора Эльбрус</h3>
+          <img src="./images/card/heart-icon.svg" alt="" class="card__icon">
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./images/elements/Dombai_3.jpg" alt="" class="class__image">
+        <div class="card__bottom-row">
+          <h3 class="card__title">Домбай</h3>
+          <img src="./images/card/heart-icon.svg" alt="" class="card__icon">
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./images/elements/karachaevo_1.jpg" alt="" class="class__image">
+        <div class="card__bottom-row">
+          <h3 class="card__title">Карачаево-Черкесия</h3>
+          <img src="./images/card/heart-icon.svg" alt="" class="card__icon">
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__text">© 2020 Mesto Russia</p>
+  </footer>
+
+</body>
+</html>
