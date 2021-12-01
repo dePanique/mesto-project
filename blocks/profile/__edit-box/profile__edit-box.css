@@ -9,6 +9,7 @@
   transition: opacity .2s ease .1s;
   background-color: initial;
   border: 1px solid #FFFFFF;
+  cursor: pointer;
 }
 
 .profile__edit-box:hover {

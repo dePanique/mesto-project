@@ -8,10 +8,15 @@
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
+  text-overflow: ellipsis;
+  max-width: 336px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 @media screen and (max-width: 641px) {
   .profile_business {
     font-size: 14px;
     line-height: 17px;
+    max-width: 282px;
   }
 }

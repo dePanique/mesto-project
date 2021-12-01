@@ -10,6 +10,10 @@
   padding: 0;
   transition: opacity .2s ease .1s;
   border-radius: 2px;
+  cursor: pointer;
+  font-weight: 400px;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .popup__save-button:hover {
@@ -22,5 +26,7 @@
     width: 238px;
     height: 46px;
     margin-bottom: 25px;
+    font-size: 14px;
+    line-height: 17px
   }
 }
