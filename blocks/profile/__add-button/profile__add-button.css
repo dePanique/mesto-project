@@ -12,6 +12,7 @@
   transition: opacity .2s ease .1s;
   background-color: initial;
   border: 2px solid #FFFFFF;
+  border-radius: 2px;
 }
 
 .profile__add-button:hover {

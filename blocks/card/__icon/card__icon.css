@@ -5,6 +5,8 @@
   margin-right: 5px;
   background-image: url(./../../../images/card/heart-icon.svg);
   transition: opacity .2s ease .1s;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
 }
 
 .card__icon:hover {

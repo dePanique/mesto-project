@@ -12,43 +12,11 @@
 </head>
 <body class="root page">
 
-  <div class="form">
-
-    <div class="form__container">
-
-      <button type="button" class="form__close-button"></button>
-
-      <div class="form__blank">
-
-        <p class="form__title">
-          Редактировать профиль
-        </p>
-
-        <form class="form__user">
-
-          <fieldset class="form__name-info">
-            <input type="text" value="Жак-Ив Кусто" class="form__input-name">
-          </fieldset>
-
-          <fieldset class="form__business-info">
-            <input type="text" value="Исследователь океана" class="form__input-business">
-          </fieldset>
-
-        </form>
-
-        <button type="submit" class="form__save-button">Сохранить</button>
-
-      </div>
-
-    </div>
-
-  </div>
-
   <header class="header">
     <img src="./images/header/Vector.svg" alt="Лого Место" class="header__logo">
   </header>
 
-  <main class="root main">
+  <main class="main">
 
     <section class="profile">
       <img src="./images/profile/Cousteau's_photo.jpg" alt="Фото Жака Ив Кусто" class="profile__avatar">
@@ -63,7 +31,7 @@
           <img src="./images/profile/pencil.svg" class="profile__edit-pen" alt="Значок карандаша">
         </button>
 
-        <h2 class="profile_business">
+        <h2 class="profile__business">
           Исследователь океана
         </h2>
 
@@ -78,50 +46,50 @@
     <section class="elements">
 
       <div class="card">
-        <img src="./images/elements/karachaevo_1.jpg" alt="Вид на небольшое заброшенное блочное здание" class="class__image">
-        <div class="card__bottom-row">
+        <img src="./images/elements/karachaevo_1.jpg" alt="Вид на небольшое заброшенное блочное здание" class="card__image">
+        <div class="card__elements-row">
           <h3 class="card__title">Карачаевск</h3>
-          <img src="./images/card/heart-icon.svg" alt="Значок сердечка" class="card__icon card__icon_active">
+          <button type="button" class="card__icon card__icon_active"></button>
         </div>
       </div>
 
       <div class="card">
-        <img src="./images/elements/Elbrus_2.jpg" alt="Вид через простирающуюся в даль пустыню с вершиной Эльбруса на горизонте" class="class__image">
-        <div class="card__bottom-row">
+        <img src="./images/elements/Elbrus_2.jpg" alt="Вид через простирающуюся в даль пустыню с вершиной Эльбруса на горизонте" class="card__image">
+        <div class="card__elements-row">
           <h3 class="card__title">Гора Эльбрус</h3>
-          <img src="./images/card/heart-icon.svg" alt="Значок сердечка" class="card__icon">
+          <button type="button" class="card__icon"></button>
         </div>
       </div>
 
       <div class="card">
-        <img src="./images/elements/Dombai_3.jpg" alt="Вид на гору Эльбрус через холм с деревьями" class="class__image">
-        <div class="card__bottom-row">
+        <img src="./images/elements/Dombai_3.jpg" alt="Вид на гору Эльбрус через холм с деревьями" class="card__image">
+        <div class="card__elements-row">
           <h3 class="card__title">Домбай</h3>
-          <img src="./images/card/heart-icon.svg" alt="Значок сердечка" class="card__icon">
+          <button type="button" class="card__icon"></button>
         </div>
       </div>
 
       <div class="card">
-        <img src="./images/elements/Elbrus_2.jpg" alt="Вид через простирающуюся в даль пустыню с вершиной Эльбруса на горизонте" class="class__image">
-        <div class="card__bottom-row">
+        <img src="./images/elements/Elbrus_2.jpg" alt="Вид через простирающуюся в даль пустыню с вершиной Эльбруса на горизонте" class="card__image">
+        <div class="card__elements-row">
           <h3 class="card__title">Гора Эльбрус</h3>
-          <img src="./images/card/heart-icon.svg" alt="Значок сердечка" class="card__icon">
+          <button type="button" class="card__icon"></button>
         </div>
       </div>
 
       <div class="card">
-        <img src="./images/elements/Dombai_3.jpg" alt="Вид на гору Эльбрус через холм с деревьями" class="class__image">
-        <div class="card__bottom-row">
+        <img src="./images/elements/Dombai_3.jpg" alt="Вид на гору Эльбрус через холм с деревьями" class="card__image">
+        <div class="card__elements-row">
           <h3 class="card__title">Домбай</h3>
-          <img src="./images/card/heart-icon.svg" alt="Значок сердечка" class="card__icon">
+          <button type="button" class="card__icon"></button>
         </div>
       </div>
 
       <div class="card">
-        <img src="./images/elements/karachaevo_1.jpg" alt="Вид на небольшое заброшенное блочное здание" class="class__image">
-        <div class="card__bottom-row">
+        <img src="./images/elements/karachaevo_1.jpg" alt="Вид на небольшое заброшенное блочное здание" class="card__image">
+        <div class="card__elements-row">
           <h3 class="card__title">Карачаево-Черкесия</h3>
-          <img src="./images/card/heart-icon.svg" alt="Значок сердечка" class="card__icon">
+          <button type="button" class="card__icon"></button>
         </div>
       </div>
 
@@ -132,6 +100,38 @@
   <footer class="footer">
     <p class="footer__text">© 2020 Mesto Russia</p>
   </footer>
+
+  <div class="popup">
+
+    <div class="popup__container">
+
+      <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+
+        <form class="popup__blank" name="profile-form">
+
+          <h2 class="popup__title">
+            Редактировать профиль
+          </h2>
+
+          <fieldset class="popup__fieldwrapper">
+
+            <input type="text" value="Жак-Ив Кусто" class="popup__input" name="profile-name"
+            placeholder="Введите имя" required>
+
+            <input type="text" value="Исследователь океана" class="popup__input"
+            name="profile-business" placeholder="Деятельность" required>
+
+          </fieldset>
+
+          <button type="submit" class="popup__save-button">
+            Сохранить
+          </button>
+
+        </form>
+
+    </div>
+
+  </div>
 
 </body>
 </html>

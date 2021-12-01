@@ -1,6 +1,6 @@
 .card {
   box-sizing: border-box;
-  border-radius: 10%;
+  border-radius: 10px;
   overflow: hidden;
   background-color: #FFFFFF;
   display: flex;

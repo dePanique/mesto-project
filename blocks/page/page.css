@@ -10,10 +10,6 @@
   padding-bottom: 60px;
 }
 
-.header:first-of-type {
-  margin-top: calc(45px + (100vw - 1280px) * (17 / 960));
-}
-
 @media screen and (max-width: 641px) {
   .page {
     padding-bottom: 36px;

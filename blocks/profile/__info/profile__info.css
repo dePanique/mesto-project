@@ -2,7 +2,6 @@
   box-sizing: border-box;
   /*border: 2px solid salmon;*/
   width: 336px;
-  height: 73px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -13,7 +12,6 @@
   .profile__info {
     margin-top: 22px;
     width: 282px;
-    height: 54px;
     justify-content: center;
   }
 }
