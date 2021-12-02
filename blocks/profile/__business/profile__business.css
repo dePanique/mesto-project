@@ -14,7 +14,7 @@
   white-space: nowrap;
 }
 @media screen and (max-width: 641px) {
-  .profile_business {
+  .profile__business {
     font-size: 14px;
     line-height: 17px;
     max-width: 282px;
