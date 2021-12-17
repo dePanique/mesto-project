@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
-  <meta name="description" content="Проект Mesto (второй месяц)">
-  <meta name="keywords" content="HTML5, CSS, Yandex Practicum">
+  <meta name="description" content="Проект Mesto (третий месяц)">
+  <meta name="keywords" content="HTML5, CSS, JavaScript, Yandex Practicum">
   <meta name="author" content="Попов Олег">
 </head>
 <body class="root page">
@@ -28,7 +28,6 @@
         </h1>
 
         <button type="button" class="profile__edit-box">
-          <img src="./images/profile/pencil.svg" class="profile__edit-pen" alt="Значок карандаша">
         </button>
 
         <h2 class="profile__business">
@@ -38,60 +37,22 @@
       </div>
 
       <button type="button" class="profile__add-button">
-        <img src="./images/profile/button-plus.svg" alt="Значок плюса" class="profile__add-plus">
       </button>
 
     </section>
 
     <section class="elements">
 
-      <div class="card">
-        <img src="./images/elements/karachaevo_1.jpg" alt="Вид на небольшое заброшенное блочное здание" class="card__image">
-        <div class="card__elements-row">
-          <h3 class="card__title">Карачаевск</h3>
-          <button type="button" class="card__icon card__icon_active"></button>
+      <template id="card">
+        <div class="card">
+          <button class="card__trash"></button>
+          <img src="" alt="" class="card__image">
+          <div class="card__elements-row">
+            <h3 class="card__title"></h3>
+            <button type="button" class="card__icon"></button>
+          </div>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="./images/elements/Elbrus_2.jpg" alt="Вид через простирающуюся в даль пустыню с вершиной Эльбруса на горизонте" class="card__image">
-        <div class="card__elements-row">
-          <h3 class="card__title">Гора Эльбрус</h3>
-          <button type="button" class="card__icon"></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="./images/elements/Dombai_3.jpg" alt="Вид на гору Эльбрус через холм с деревьями" class="card__image">
-        <div class="card__elements-row">
-          <h3 class="card__title">Домбай</h3>
-          <button type="button" class="card__icon"></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="./images/elements/Elbrus_2.jpg" alt="Вид через простирающуюся в даль пустыню с вершиной Эльбруса на горизонте" class="card__image">
-        <div class="card__elements-row">
-          <h3 class="card__title">Гора Эльбрус</h3>
-          <button type="button" class="card__icon"></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="./images/elements/Dombai_3.jpg" alt="Вид на гору Эльбрус через холм с деревьями" class="card__image">
-        <div class="card__elements-row">
-          <h3 class="card__title">Домбай</h3>
-          <button type="button" class="card__icon"></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="./images/elements/karachaevo_1.jpg" alt="Вид на небольшое заброшенное блочное здание" class="card__image">
-        <div class="card__elements-row">
-          <h3 class="card__title">Карачаево-Черкесия</h3>
-          <button type="button" class="card__icon"></button>
-        </div>
-      </div>
+      </template>
 
     </section>
 
@@ -101,13 +62,13 @@
     <p class="footer__text">© 2020 Mesto Russia</p>
   </footer>
 
-  <div class="popup popup_active">
+  <div class="popup popup__opacity_50">
 
     <div class="popup__container">
 
       <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
 
-        <form class="popup__blank" name="profile-form">
+        <form class="popup__blank" name="profile-form" id="profile-form">
 
           <h2 class="popup__title">
             Редактировать профиль
@@ -115,10 +76,10 @@
 
           <fieldset class="popup__fieldwrapper">
 
-            <input type="text" value="Жак-Ив Кусто" class="popup__input" name="profile-name"
+            <input type="text" value="" class="popup__input" name="profile-name"
             placeholder="Введите имя" required>
 
-            <input type="text" value="Исследователь океана" class="popup__input"
+            <input type="text" value="" class="popup__input"
             name="profile-business" placeholder="Деятельность" required>
 
           </fieldset>
@@ -132,6 +93,49 @@
     </div>
 
   </div>
+
+  <div class="popup popup__opacity_50">
+
+    <div class="popup__container">
+
+      <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+
+        <form class="popup__blank" name="addImage-form" id="addImage-form">
+
+          <h2 class="popup__title">
+            Новое место
+          </h2>
+
+          <fieldset class="popup__fieldwrapper">
+
+            <input type="text" value="" class="popup__input" name="image-name"
+            placeholder="Название" required>
+
+            <input type="text" value="" class="popup__input"
+            name="image-link" placeholder="Ссылка на картинку" required>
+
+          </fieldset>
+
+          <button type="submit" class="popup__save-button">
+            Сохранить
+          </button>
+
+        </form>
+
+    </div>
+
+  </div>
+
+  <div class="popup popup__opacity_90">
+
+    <div class="popup__image-frame">
+      <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+      <img src="#" alt="#" class="popup__image">
+      <p class="popup__figcaption">#</p>
+    </div>
+
+  </div>
+  <script src="./pages/index.js"></script>
 
 </body>
 </html>

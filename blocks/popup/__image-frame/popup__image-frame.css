@@ -1,0 +1,8 @@
+.popup__image-frame {
+  box-sizing: border-box;
+  min-width: 240px;
+  min-height: 299px;
+  background-color: white;
+  position: relative;
+  display: flex;
+}
