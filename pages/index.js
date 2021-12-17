@@ -27,27 +27,82 @@ const initialCards = [
 
 const profileName = document.querySelector('.profile__name');
 const profileBusiness = document.querySelector('.profile__business');
-const popup = document.querySelectorAll('.popup');
+
 const editProfileButton = document.querySelector('.profile__edit-box');
 const addImage = document.querySelector('.profile__add-button');
-const closeButtons = document.querySelectorAll('.popup__close-button');
-const submitProfileEdit = document.querySelectorAll('.popup__save-button')[0];
-const submitAddImage = document.querySelectorAll('.popup__save-button')[1];
-const elements = document.querySelector('.elements');
-const card = document.querySelector('#card').content;
-const inputName = document.querySelectorAll('.popup__input')[0];
-const inputBusiness = document.querySelectorAll('.popup__input')[1];
-const inputImageName = document.querySelectorAll('.popup__input')[2];
-const inputLink = document.querySelectorAll('.popup__input')[3];
-const figcaption = popup[2].querySelector('.popup__figcaption');
-const popupImage = document.querySelector('.popup__image');
-let activepopup = popup;
 
+const elements = document.querySelector('.elements');
+
+const card = document.querySelector('#card').content;
+
+// popups
+const editProfilePopup =  document.querySelector('.profile__ediprofilepopup');
+const editProfilePopupCloseButton = editProfilePopup.querySelector('.popup__close-button');
+
+const addImagePopup =  document.querySelector('.profile__addimagepopup');
+const addImagePopupCloseButton = addImagePopup.querySelector('.popup__close-button');
+
+const cardPopup =  document.querySelector('.card__cardpopup');
+const cardPopupCloseButton = cardPopup.querySelector('.popup__close-button');
+
+let activepopup;
+// TODO убрать popup2
+const popupImage = document.querySelector('.popup__image');
 
 //Функция отвечает за появление и исчезновение элементов
 function toFadePopup() {
   activepopup.classList.toggle('popup_fade');
 }
+
+function openPopup() {
+  console.log(activepopup)
+  activepopup.classList.add('popup_active');
+  setTimeout(toFadePopup, 400);
+}
+
+function closePopup() {
+  activepopup.classList.remove('popup_active');
+}
+
+// Кнопка редактировать профиль
+editProfileButton.addEventListener('click', function() {
+  console.log(777);
+  activepopup = editProfilePopup;
+  openPopup();
+});
+
+//Кнопка закрыть редактировать профиль
+editProfilePopupCloseButton.addEventListener('click', function() {
+  toFadePopup();
+  setTimeout(closePopup, 400);
+});
+
+//Кнопка добавить карточку
+addImage.addEventListener('click', function() {
+  console.log(777);
+  activepopup = addImagePopup;
+  openPopup();
+});
+
+//Кнопка закрытия добавления формы карточки
+addImagePopupCloseButton.addEventListener('click', function() {
+  toFadePopup();
+  setTimeout(closePopup, 400);
+});
+
+//Кнопка открытия просмотра фотографии
+cardPopup.addEventListener('click', function() {
+  console.log(777);
+  activepopup = addImagePopup;
+  openPopup();
+});
+
+//Кнопка закрытия просмотра фотографии
+cardPopupCloseButton.addEventListener('click', function() {
+  toFadePopup();
+  setTimeout(closePopup, 400);
+});
+
 
 //Функция рендерит карточки на странице
 function renderCards(cardArray) {
@@ -84,7 +139,7 @@ function renderCards(cardArray) {
     //Добавим реакцию на клик по картинке
     element.querySelector('.card__image').addEventListener('click', () => {
 
-      activepopup = popup[2];
+      activepopup = cardPopup;
       popup[2].classList.toggle('popup_active');
       setTimeout(toFadePopup, 100);
       figcaption.textContent = cardArrayElement.name;
@@ -108,12 +163,6 @@ function fillInput() {
 
 }
 
-// Туглит окно редактирования профиля
-function handlePopup() {
-
-  activepopup.classList.toggle('popup_active');
-
-}
 
 //Отправка данных на сервер
 function submitPopup(evt) {
@@ -147,15 +196,6 @@ function submitPopup(evt) {
 
 }
 
-// Кнопка редактировать профиль
-editProfileButton.addEventListener('click', () => {
-
-  activepopup = popup[0];
-  handlePopup();
-  setTimeout(toFadePopup, 100);
-  fillInput();
-
-});
 
 //Кнопка добавить картинку
 addImage.addEventListener('click', () => {
@@ -165,36 +205,6 @@ addImage.addEventListener('click', () => {
   setTimeout(toFadePopup, 100);
 
 });
-
-//Кнопка закрыть редактирование профиля
-closeButtons[0].addEventListener('click', () => {
-
-  toFadePopup();
-  setTimeout(handlePopup, 300);
-
-});
-
-//Кнопка закрыть добавление картинки
-closeButtons[1].addEventListener('click', () => {
-
-  toFadePopup();
-  setTimeout(handlePopup, 300);
-
-});
-
-//Кнопка закрыть просмотр
-closeButtons[2].addEventListener('click', () => {
-
-  toFadePopup();
-  setTimeout(handlePopup, 300);
-
-});
-
-//Сабмит попап редактирования профиля
-submitProfileEdit.addEventListener('click', submitPopup);
-
-//Сабмит попап добавления фотографии
-submitAddImage.addEventListener('click', submitPopup);
 
 //Рендер карточек при загрузке страницы
 renderCards(initialCards);
