@@ -56,8 +56,8 @@ const cardPopupImage = cardPopup.querySelector('.popup__image');
 const cardPopupFigcaption = cardPopup.querySelector('.popup__figcaption');
 
 //Функция отвечает за появление и исчезновение элементов
-function toFadePopup(activepopup) {
-  activepopup.classList.toggle('popup_fade');
+function toFadePopup(activePopup) {
+  activePopup.classList.toggle('popup_fade');
 }
 
 //Функция передает информацию в поля попапа редактирования профиля
@@ -67,16 +67,16 @@ function fillInput() {
 }
 
 //Функция открытия попапа
-function openPopup(activepopup) {
-  activepopup.classList.add('popup_active');
+function openPopup(activePopup) {
+  activePopup.classList.add('popup_active');
   setTimeout(function() {
-    toFadePopup(activepopup)
+    toFadePopup(activePopup)
   }, 400);
 }
 
 //Функция закрытия попапа
-function closePopup(activepopup) {
-  activepopup.classList.remove('popup_active');
+function closePopup(activePopup) {
+  activePopup.classList.remove('popup_active');
 }
 
 //Функция создает карточку
@@ -160,8 +160,6 @@ addImageForm.addEventListener('submit', function addImageSubmit(evt) {
 //Кнопка закрытия добавления формы карточки
 addImagePopupCloseButton.addEventListener('click', function() {
   toFadePopup(addImagePopup);
-  imageNameInput.value = '';
-  imageLinkInput.value = '';
   setTimeout(function() {
     closePopup(addImagePopup);
   }, 400);
