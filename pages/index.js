@@ -1,3 +1,16 @@
+import {enableValidation} from './validation.js'
+
+const validationConfig = {
+  formSelector: ".popup__blank",
+  inputSelector: ".popup__input",
+  errorClass: 'error-message_visible',
+  inputInvalidClass: 'input__text_invalid',
+  buttonSelector: '.popup__save-button',
+  buttonDisabledClass: '.popup__save-button_active_false'
+};
+
+enableValidation(validationConfig);
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -109,7 +122,6 @@ function createCard(cardInfoObject) {
   });
 
   return element;
-
 }
 
 // Кнопка открыть редактор профиля

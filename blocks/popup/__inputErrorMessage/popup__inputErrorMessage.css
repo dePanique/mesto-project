@@ -1,0 +1,24 @@
+.popup__inputErrorMessage {
+  position: absolute;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  width: inherit;
+  box-sizing: border-box;
+  min-height: 12px;
+  top: 146px;
+}
+
+.popup__inputErrorMessage:nth-of-type(2) {
+  top: 203px;
+}
+
+@media  screen and (max-width: 767px) {
+  .popup__inputErrorMessage {
+    top: 148px;
+  }
+  .popup__inputErrorMessage:nth-of-type(2) {
+    top: 205px;
+  }
+}
