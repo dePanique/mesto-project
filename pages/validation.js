@@ -1,19 +1,40 @@
 //функция выбирает span по id
-const checkInputValidity = (formElement, inputElement, config) => {
+export const checkInputValidity = (formElement, inputElement, config) => {
   //у каждого инпута есть validity
-
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  errorElement.textContent = inputElement.validationMessage;
 
   //const passwordsCorrect = checkPasswords(inputElement);
   if (!inputElement.validity.valid) {
     //hideInputError(inputElement, errorElement, config);
-    errorElement.textContent = inputElement.validationMessage;
     inputElement.classList.add('popup__input_invalid');
   } else {
     //showInputError(inputElement, errorElement, inputElement.validationMessage, config);
-    errorElement.textContent = '';
+    inputElement.classList.remove('popup__input_invalid');
   }
 };
+
+const disabledButton = (buttonElement, config) => {
+  buttonElement.classList.add(config.buttonDisabledClass);
+  buttonElement.disabled = true;
+}
+
+const enableButton = (buttonElement, config) => {
+  buttonElement.classList.remove(config.buttonDisabledClass);
+  buttonElement.disabled = false;
+}
+
+const hasInvalidInput = inputList => inputList.some(inputElement => !inputElement.validity.valid);
+
+const toggleButtonState = (formElement, inputList, config) => {
+  const buttonElement = formElement.querySelector(config.buttonSelector);
+
+  if (hasInvalidInput(inputList)) {
+    disabledButton(buttonElement, config);
+  } else {
+    enableButton(buttonElement, config);
+  }
+}
 
 // Вешает лисенеры на инпуты
 const setEventListeners = (formElement, config) => {
@@ -24,11 +45,11 @@ const setEventListeners = (formElement, config) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, config);
-      //toggleButtonState(formElement, inputList, config)
+      toggleButtonState(formElement, inputList, config)
     });
   });
 
-  // toggleButtonState(formElement, inputList, config);
+  toggleButtonState(formElement, inputList, config);
 };
 
 export const enableValidation = (config) => {
@@ -41,3 +62,4 @@ export const enableValidation = (config) => {
     setEventListeners(form, config);
   });
 };
+

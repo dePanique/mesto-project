@@ -3,10 +3,9 @@ import {enableValidation} from './validation.js'
 const validationConfig = {
   formSelector: ".popup__blank",
   inputSelector: ".popup__input",
-  errorClass: 'error-message_visible',
   inputInvalidClass: 'input__text_invalid',
   buttonSelector: '.popup__save-button',
-  buttonDisabledClass: '.popup__save-button_active_false'
+  buttonDisabledClass: 'popup__save-button_active_false'
 };
 
 enableValidation(validationConfig);
@@ -68,6 +67,7 @@ const cardPopupCloseButton = cardPopup.querySelector('.popup__close-button');
 const cardPopupImage = cardPopup.querySelector('.popup__image');
 const cardPopupFigcaption = cardPopup.querySelector('.popup__figcaption');
 
+
 //Функция отвечает за появление и исчезновение элементов
 function toFadePopup(activePopup) {
   activePopup.classList.toggle('popup_fade');
@@ -79,9 +79,25 @@ function fillInput() {
   profileBusinessInput.value = profileBusiness.textContent.trim();
 }
 
+// проверка клика по оверлэю
+function isTargetPopup(popup) {
+  if (popup.target.classList.contains('popup_active')) {
+    handlePopup(popup.target);
+  }
+}
+
+function escapePopup(evt) {
+  if (evt.key === 'Escape') {
+    console.log(2)
+    handlePopup(document.querySelector('.popup_active'))
+  }
+}
+
 //Функция открытия попапа
 function openPopup(activePopup) {
   activePopup.classList.add('popup_active');
+  document.addEventListener('click', isTargetPopup);
+  document.addEventListener('keydown', escapePopup);
   setTimeout(function() {
     toFadePopup(activePopup)
   }, 400);
@@ -90,6 +106,8 @@ function openPopup(activePopup) {
 //Функция закрытия попапа
 function closePopup(activePopup) {
   activePopup.classList.remove('popup_active');
+  document.removeEventListener('click', isTargetPopup);
+  document.removeEventListener('keydown', escapePopup);
 }
 
 //Функция создает карточку
@@ -130,14 +148,6 @@ editProfileButton.addEventListener('click', function() {
   fillInput();
 });
 
-//Кнопка закрыть редактор профиля
-editProfilePopupCloseButton.addEventListener('click', function() {
-  toFadePopup(editProfilePopup);
-  setTimeout(function() {
-    closePopup(editProfilePopup)
-  }, 400);
-});
-
 //Сабмит редактор профиля
 profileForm.addEventListener('submit', function submitEditProfilePopup(evt){
   evt.preventDefault();
@@ -167,23 +177,29 @@ addImageForm.addEventListener('submit', function addImageSubmit(evt) {
   setTimeout(function() {
     closePopup(addImagePopup);
   }, 400);
-})
+});
+
+function handlePopup(evt) {
+  toFadePopup(evt);
+  setTimeout(function() {
+    closePopup(evt);
+  }, 400);
+}
 
 //Кнопка закрытия добавления формы карточки
-addImagePopupCloseButton.addEventListener('click', function() {
-  toFadePopup(addImagePopup);
-  setTimeout(function() {
-    closePopup(addImagePopup);
-  }, 400);
+addImagePopupCloseButton.addEventListener('click',() => {
+  handlePopup(addImagePopup);
 });
 
 //Кнопка закрытия попапа просмотра картинок
-cardPopupCloseButton.addEventListener('click', function() {
-  toFadePopup(cardPopup);
-  setTimeout(function() {
-    closePopup(cardPopup);
-  }, 400);
-})
+cardPopupCloseButton.addEventListener('click', ()=> {
+  handlePopup(cardPopup);
+});
+
+//Кнопка закрыть редактор профиля
+editProfilePopupCloseButton.addEventListener('click', () => {
+  handlePopup(editProfilePopup);
+});
 
 //Создание карточек из начального массива
 initialCards.forEach(element => {
