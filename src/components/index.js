@@ -58,9 +58,7 @@ const elements = page.querySelector('.elements');
 
 // editPtofilePopup
 const editProfilePopup = page.querySelector('.profile__ediprofilepopup');
-const editProfilePopupCloseButton = editProfilePopup.querySelector(
-  '.popup__close-button'
-);
+const editProfilePopupCloseButton = editProfilePopup.querySelector('.popup__close-button');
 const profileNameInput = document.getElementById('profile-name');
 const profileBusinessInput = document.getElementById('profile-business');
 const profileForm = editProfilePopup.querySelector('.popup__blank');
@@ -69,9 +67,7 @@ const editProfileImageLinkInput = document.getElementById('profile-business');
 
 // addImagePopup
 const addImagePopup = page.querySelector('.profile__addimagepopup');
-const addImagePopupCloseButton = addImagePopup.querySelector(
-  '.popup__close-button'
-);
+const addImagePopupCloseButton = addImagePopup.querySelector('.popup__close-button');
 const addImageForm = addImagePopup.querySelector('.popup__blank');
 const imageNameInput = document.getElementById('image-name');
 const imageLinkInput = document.getElementById('image-link');
@@ -90,7 +86,10 @@ editProfileButton.addEventListener('click', function () {
     profileName,
     profileBusiness
   );
-  checkInputValidity(editProfilePopup, editProfileNameInput, validationConfig);
+  checkInputValidity(
+    editProfilePopup,
+    editProfileNameInput,
+    validationConfig);
   checkInputValidity(
     editProfilePopup,
     editProfileImageLinkInput,
