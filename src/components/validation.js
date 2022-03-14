@@ -7,34 +7,35 @@ export const checkInputValidity = (formElement, inputElement, config) => {
   //const passwordsCorrect = checkPasswords(inputElement);
   if (!inputElement.validity.valid) {
     //hideInputError(inputElement, errorElement, config);
-    inputElement.classList.add('popup__input_invalid');
+    inputElement.classList.add(config.inputInvalidClass);
   } else {
     //showInputError(inputElement, errorElement, inputElement.validationMessage, config);
-    inputElement.classList.remove('popup__input_invalid');
+    inputElement.classList.remove(config.inputInvalidClass);
   }
 };
 
-const disabledButton = (buttonElement, config) => {
+export const disableButton = (buttonElement, config) => {
   buttonElement.classList.add(config.buttonDisabledClass);
   buttonElement.disabled = true;
-}
+};
 
 const enableButton = (buttonElement, config) => {
   buttonElement.classList.remove(config.buttonDisabledClass);
   buttonElement.disabled = false;
-}
+};
 
-const hasInvalidInput = inputList => inputList.some(inputElement => !inputElement.validity.valid);
+const hasInvalidInput = (inputList) =>
+  inputList.some((inputElement) => !inputElement.validity.valid);
 
 const toggleButtonState = (formElement, inputList, config) => {
   const buttonElement = formElement.querySelector(config.buttonSelector);
 
   if (hasInvalidInput(inputList)) {
-    disabledButton(buttonElement, config);
+    disableButton(buttonElement, config);
   } else {
     enableButton(buttonElement, config);
   }
-}
+};
 
 // Вешает лисенеры на инпуты
 const setEventListeners = (formElement, config) => {
@@ -43,9 +44,9 @@ const setEventListeners = (formElement, config) => {
   );
 
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
+    inputElement.addEventListener('input', () => {
       checkInputValidity(formElement, inputElement, config);
-      toggleButtonState(formElement, inputList, config)
+      toggleButtonState(formElement, inputList, config);
     });
   });
 
@@ -56,10 +57,9 @@ export const enableValidation = (config) => {
   //выбрать все формы на странице
   const forms = Array.from(document.querySelectorAll(config.formSelector));
   forms.forEach((form) => {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
     });
     setEventListeners(form, config);
   });
 };
-

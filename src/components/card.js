@@ -1,5 +1,6 @@
-import {openPopup} from './modal.js'
-const cardPopup =  document.querySelector('.card__cardpopup');
+import { openPopup } from './modal.js';
+
+const cardPopup = document.querySelector('.card__cardpopup');
 const cardPopupImage = cardPopup.querySelector('.popup__image');
 const cardPopupFigcaption = cardPopup.querySelector('.popup__figcaption');
 
@@ -10,9 +11,10 @@ export function createCard(cardInfoObject) {
   const element = card.querySelector('.card').cloneNode(true);
 
   //Запишем нужную информацию в карточку
-  element.querySelector('.card__image').src = cardInfoObject.link;
+  const cardImage = element.querySelector('.card__image');
+  cardImage.src = cardInfoObject.link;
   element.querySelector('.card__title').textContent = cardInfoObject.name;
-  element.querySelector('.card__image').alt = `Изображение ${cardInfoObject.name}`;
+  cardImage.alt = `Изображение ${cardInfoObject.name}`;
 
   //Добавим реакцию на клик по сердечку
   element.querySelector('.card__icon').addEventListener('click', (el) => {
@@ -25,7 +27,7 @@ export function createCard(cardInfoObject) {
   });
 
   //Добавим реакцию на клик по картинке
-  element.querySelector('.card__image').addEventListener('click', () => {
+  cardImage.addEventListener('click', () => {
     openPopup(cardPopup);
     cardPopupFigcaption.textContent = cardInfoObject.name;
     cardPopupImage.src = cardInfoObject.link;
