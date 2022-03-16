@@ -1,0 +1,9 @@
+.profile__avatar-pen {
+  background-image: url(./../../../images/profile/pencil.svg);
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity .7s ease-in-out;
+}

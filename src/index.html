@@ -19,7 +19,12 @@
   <main class="main">
 
     <section class="profile">
-      <img src="<%=require('./images/profile/Cousteau_s_photo.jpg')%>" alt="Фото Жака Ив Кусто" class="profile__avatar">
+
+      <div class="profile__avatar">
+        <div class="profile__avatar-overlay">
+          <div class="profile__avatar-pen"></div>
+        </div>
+      </div>
 
       <div class="profile__info">
 
@@ -45,11 +50,14 @@
 
       <template id="card">
         <div class="card">
-          <button class="card__trash"></button>
+          <button class="card__trash card__trash_active_false"></button>
           <img src="" alt="" class="card__image">
           <div class="card__elements-row">
             <h3 class="card__title"></h3>
-            <button type="button" class="card__icon"></button>
+            <div class="card__iconColumn">
+              <button type="button" class="card__icon"></button>
+              <p class="card__amountOfLikes">4</p>
+            </div>
           </div>
         </div>
       </template>
@@ -114,6 +122,36 @@
           </fieldset>
 
           <button disabled type="submit" class="popup__save-button" >
+            Сохранить
+          </button>
+
+        </form>
+
+    </div>
+
+  </div>
+
+  <div class="popup profile__avatarapprovalpopup">
+
+    <div class="popup__container">
+
+      <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+
+        <form class="popup__blank" name="avatarapprovalpopup" id="avatarapprovalpopup">
+
+          <h2 class="popup__title">
+            Обновить аватар
+          </h2>
+
+          <fieldset class="popup__fieldwrapper">
+
+            <input type="url" value="" class="popup__input"
+            name="avatar-link" placeholder="Ссылка на картинку" id="avatar-link" required>
+            <span id="avatar-link-error" class="popup__inputErrorMessage"></span>
+
+          </fieldset>
+
+          <button type="submit" class="popup__save-button">
             Сохранить
           </button>
 

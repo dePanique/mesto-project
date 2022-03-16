@@ -1,7 +1,7 @@
 // проверка клика по оверлэю
 function handleOverlayClick(popup) {
   if (popup.target.classList.contains('popup_active')) {
-    handlePopup(popup.target);
+    closePopup(popup.target);
   }
 }
 
@@ -10,11 +10,6 @@ function handleEscapeKey(evt) {
   if (evt.key === 'Escape') {
     closePopup(document.querySelector('.popup_active'))
   }
-}
-
-//Закрыть попап с fade эффектом
-export function handlePopup(evt) {
-  closePopup(evt);
 }
 
 //Функция закрытия попапа
@@ -32,7 +27,11 @@ export function openPopup(activePopup) {
 }
 
 //Функция передает информацию в поля попапа редактирования профиля
-export function fillInput(profileNameInput, profileBusinessInput, profileName, profileBusiness) {
+export function fillProfileInput(profileNameInput, profileBusinessInput, profileName, profileBusiness) {
   profileNameInput.value = profileName.textContent.trim();
   profileBusinessInput.value = profileBusiness.textContent.trim();
+}
+
+export function showLoadingStatus(evt, status) {
+  evt.target.querySelector('.popup__save-button').textContent = `${status}`;
 }

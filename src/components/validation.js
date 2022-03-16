@@ -1,6 +1,5 @@
 //функция выбирает span по id
 export const checkInputValidity = (formElement, inputElement, config) => {
-  //у каждого инпута есть validity
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   errorElement.textContent = inputElement.validationMessage;
 
