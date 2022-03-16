@@ -103,7 +103,6 @@ export function getProfile(profileNameText, profileBusinessText, profileAvatar) 
   .then((result) => {
     profileNameText.textContent = result.name;
     profileBusinessText.textContent = result.about;
-    console.log(result.avatar)
     profileAvatar.style.backgroundImage = `url(${result.avatar})`;
   })
   .finally(() => {
