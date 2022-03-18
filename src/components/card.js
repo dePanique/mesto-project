@@ -38,13 +38,22 @@ export function createCard(cardInfoObject) {
           cardIcon.classList.remove('card__icon_active');
           amountOfLike.textContent = result.likes.length;
         })
+        .catch((err) => {
+          console.log(err)
+        })
       } else {
         addLike(cardInfoObject._id)
         .then((result) => {
           cardIcon.classList.add('card__icon_active');
           amountOfLike.textContent = result.likes.length;
         })
+        .catch((err) => {
+          console.log(err)
+        })
       }
+    })
+    .catch((err) => {
+      console.log(err)
     })
   })
 
@@ -55,6 +64,9 @@ export function createCard(cardInfoObject) {
       deleteCard(cardInfoObject._id)
       .then(() => {
         element.remove();
+      })
+      .catch((err) => {
+        console.log(err)
       })
     })
   }

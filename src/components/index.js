@@ -133,7 +133,16 @@ avatarEditPopupSubmit.addEventListener('submit', (evt) => {
   })
 })
 
-Promise.all([getProfile(), getCards()])
+Promise.all([
+  getProfile()
+  .catch((err) => {
+    console.log(err)
+  }),
+  getCards()
+  .catch((err) => {
+    console.log(err)
+  })
+])
 .then(([userData, cards]) => {
   //Добавляем информацию о пользователе
   createCard.user_id = userData._id
